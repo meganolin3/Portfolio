@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>People Behind The Crimean War</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;700&family=Coming+Soon&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Abhaya+Libre:wght@500&display=swap" rel="stylesheet">
+
+    <style>
+        /* --- CSS STYLES --- */
+        
+        /* 1. Global Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Manrope', sans-serif;
+            color: #000;
+            background-color: #fff;
+        }
+
+        /* NEW: General Image Safety Rule 
+           This ensures ANY image you add will never overflow the screen 
+           and will maintain its aspect ratio. */
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block; /* Removes tiny gap under images */
+        }
+
+        /* 2. Main Layout Structure */
+        .container {
+            display: flex;
+            min-height: 100vh;
+        }
+
+        /* 3. The Fixed Sidebar */
+        .sidebar {
+            width: 45%;
+            max-width: 600px;
+            min-width: 320px;
+            background-color: #394508; /* Dark Olive Green */
+            height: 100vh; /* Full viewport height */
+            position: fixed; /* THIS MAKES IT STICK */
+            left: 0;
+            top: 0;
+            overflow-y: auto; /* Scroll inside sidebar if needed */
+            padding: 40px;
+            color: #D2FD9C;
+            z-index: 10;
+        }
+
+        .main-title {
+            font-size: 3rem;
+            line-height: 1.1;
+            margin-bottom: 20px;
+            font-weight: 400;
+        }
+
+        .main-title .highlight {
+            color: #D2FD9C; 
+        }
+
+        .description {
+            color: #CBCBCB;
+            font-size: 1rem;
+            line-height: 1.5;
+            margin-bottom: 40px;
+        }
+
+        /* Flourish Embed Placeholder */
+        .flourish-embed-container {
+            width: 100%;
+            margin-top: 20px;
+        }
+
+        .placeholder-embed {
+            background: #EBEBFF;
+            min-height: 100px; 
+            width: 100%;
+            display: block; 
+            color: #4D49FC;
+            border-radius: 8px;
+            text-align: center;
+            padding: 10px; 
+        }
+
+        /* 4. The Right Content Area */
+        .main-content {
+            margin-left: 45%; 
+            width: 55%;
+            padding: 60px 50px;
+            background-color: #fff;
+            position: relative;
+        }
+
+        /* Hero Section */
+        .hero-image {
+            width: 100%; /* Forces image to fill the container width */
+            height: auto;
+            border-radius: 27px;
+            object-fit: cover;
+        }
+
+        .content-image {
+            width: 100%; /* Forces image to fill the container width */
+            height: auto;
+            border-radius: 10px;
+            margin: 20px 0;
+            box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+        }
+
+        .caption {
+            text-align: right;
+            font-size: 0.9rem;
+            color: #619111;
+            margin-top: 10px;
+            margin-bottom: 40px;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            color: #394508;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .centered {
+            text-align: center;
+            max-width: 600px;
+            margin: 0 auto 60px auto;
+        }
+
+        .body-text {
+            font-size: 1.25rem;
+            line-height: 1.5;
+            margin-bottom: 20px;
+            color: #000;
+        }
+
+        /* 5. The Timeline */
+        .timeline-container {
+            position: relative;
+            padding-left: 40px;
+            margin-top: 60px;
+        }
+
+        /* The dashed line */
+        .timeline-line {
+            position: absolute;
+            left: -17px;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background-image: linear-gradient(#394508 60%, rgba(255,255,255,0) 0%);
+            background-position: right;
+            background-size: 4px 20px;
+            background-repeat: repeat-y;
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 100px; 
+        }
+
+        .timeline-dot {
+            position: absolute;
+            left: -80px;
+            top: 10px;
+            width: 50px;
+            height: 50px;
+            background-color: #D2FD9C;
+            border-radius: 50%;
+            z-index: 2;
+        }
+
+        .timeline-date {
+            font-size: 2rem;
+            color: #394508;
+            margin-bottom: 5px;
+            font-weight: 400;
+        }
+
+        .timeline-subtitle {
+            font-size: 1.5rem;
+            color: #619111;
+            margin-bottom: 20px;
+            font-weight: 400;
+        }
+
+        .quote-box {
+            font-family: 'Coming Soon', cursive;
+            background-color: #f9f9f9;
+            padding: 20px;
+            border-left: 4px solid #394508;
+            margin: 30px 0;
+            font-size: 1.25rem; 
+            line-height: 1.4;
+        }
+
+        .quote-author {
+            display: block;
+            margin-top: 10px;
+            font-size: 0.9rem;
+            font-weight: bold;
+            color: #619111;
+            font-family: 'Manrope', sans-serif;
+            text-align: right;
+        }
+
+        .chart-placeholder {
+            width: 100%;
+            min-height: 250px;
+            background-color: #EBEBFF; 
+            display: block; 
+            margin-top: 20px;
+            color: #4D49FC;
+            border-radius: 10px;
+            position: relative;
+            padding: 10px;
+        }
+        
+        .chart-caption {
+            font-family: 'Coming Soon', cursive;
+            font-size: 0.9rem;
+            margin-top: 10px;
+            text-align: right;
+            color: #555;
+        }
+
+        /* --- RESPONSIVE MOBILE VIEW --- */
+        @media (max-width: 900px) {
+            .container {
+                flex-direction: column;
+            }
+            
+            .sidebar {
+                width: 100%;
+                max-width: none;
+                height: auto;
+                position: relative; /* No longer fixed on mobile */
+                padding: 30px;
+            }
+            
+            .main-content {
+                width: 100%;
+                margin-left: 0;
+                padding: 30px 20px;
+            }
+
+            .timeline-container {
+                padding-left: 20px;
+            }
+            
+            .timeline-dot {
+                width: 30px;
+                height: 30px;
+                left: -35px;
+                top: 5px;
+            }
+            
+            .timeline-line {
+                left: -21px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        
+        <!-- LEFT SIDEBAR (Fixed) -->
+        <aside class="sidebar">
+            <div class="sidebar-content">
+                <h1 class="main-title">People Behind The <span class="highlight">Crimean War</span></h1>
+                
+                <p class="description">
+                    The diagram below shows the mortality rate caused by three main factors: disease (such as diarrhea and dysentery), wounds (injuries from the battlefield), and other causes. 
+                    <br><br>
+                    Explore the diagram by clicking the play button or by dragging along the line chart.
+                </p>
+
+                <!-- Flourish Embed Container -->
+                <div class="flourish-embed-container">
+                    <div class="placeholder-embed">
+                        <!-- FLOURISH EMBED CODE START -->
+                        <div class="flourish-embed flourish-bar-chart-race" data-src="visualisation/25749200"><script src="https://public.flourish.studio/resources/embed.js"></script><noscript><img src="https://public.flourish.studio/visualisation/25749200/thumbnail" width="100%" alt="bar-chart-race visualization" /></noscript></div>
+                        <!-- FLOURISH EMBED CODE END -->
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+        <!-- RIGHT CONTENT (Scrollable) -->
+        <main class="main-content">
+            
+            <!-- Intro Image Section -->
+            <section class="content-block">
+                <img src="TheCharge.jpg" alt="New Description">
+                <p class="caption">The Charge of the Light Brigade, 1854</p>
+                
+                <h2 class="section-title">Crimean War</h2>
+                <p class="body-text centered">
+                    The Crimean War (1854-56) was fought by an alliance of Britain, France, Turkey and Sardinia against Russia. It was the only major European conflict the Army engaged in between 1816 and 1914.
+                </p>
+            </section>
+
+            <!-- Timeline Start -->
+            <div class="timeline-container">
+                <div class="timeline-line"></div>
+
+                <!-- Timeline Item 1 -->
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <h3 class="timeline-date">April 1854 - October 1854</h3>
+                        <h4 class="timeline-subtitle">The beginning</h4>
+                        <p class="body-text">
+                            The Crimean War (1853-1856) transformed Istanbul, then the Ottoman capital, into a medical hub where new ideas were tested and exchanged among physicians and nurses from all over Europe to control the spread of infectious diseases and battle wounds. Patients were sent to the Ottoman capital for better treatment; specifically to a barrack style hospital founded as a unit of the Selimiye Barracks in Üsküdar. Known to the British as ‘Scutari’ with 3200-bed facility.
+                        </p>
+                        
+                        <!-- Flourish Embed Container -->
+                        <div class="flourish-embed-container">
+                             <div class="placeholder-embed">
+                                <!-- FLOURISH EMBED 2 -->
+                                <div class="flourish-embed flourish-parliament" data-src="visualisation/25749616"><script src="https://public.flourish.studio/resources/embed.js"></script><noscript><img src="https://public.flourish.studio/visualisation/25749616/thumbnail" width="100%" alt="parliament visualization" /></noscript></div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- Timeline Item 2 -->
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <h3 class="timeline-date">November 1854 - March 1855</h3>
+                        <h4 class="timeline-subtitle">The snow</h4>
+                        <p class="body-text">
+                            A violent storm on 14 November that was characterized by strong winds and torrential rain wrought havoc in the camps, severely damaged developing infrastructure and caused the loss of transport ships laden with vital stores. 
+                            <br><br>
+                            Several British ships were wrecked, including the steamship HMS ‘Prince’, which was carrying warm winter clothing and hay for the Commissariat’s horses. Altogether, 30 vessels with their precious cargoes of medical supplies, food and clothing were damaged. The troops in the trenches outside Sevastopol soon ran short of rations, winter clothes, tents, medical supplies and fuel for cooking. Poorly clothed, lacking shelter and succumbing to disease, by February 1855 the British force had been reduced to 12,000 effective men.
+                        </p>
+
+                        <!-- Flourish Embed Container -->
+                        <div class="flourish-embed-container">
+                            <div class="placeholder-embed">
+                                <!-- FLOURISH EMBED 3 -->
+                                 <div class="flourish-embed flourish-parliament" data-src="visualisation/25855455"><script src="https://public.flourish.studio/resources/embed.js"></script><noscript><img src="https://public.flourish.studio/visualisation/25855455/thumbnail" width="100%" alt="parliament visualization" /></noscript></div>
+                        <!-- FLOURISH EMBED CODE END -->
+                            </div>
+                        </div>
+                        <div class="quote-box">
+                            "We are now about three miles from Sebastopol and under canvas tents, the rain pouring in torrents and all around miserable. Cholera has broke out amongst the poor fellows who are exposed in the trenches day and night with nothing but their big coats to shelter them from the rain or cold... Water is very scarce and extremely muddy. I have not washed my face nor yet shaved since I landed here... This terrible Cholera... has made fearful ravages here. I have just commenced to write again and there are now six poor fellows lying dead. I am rather loose in my bowels, but take as much care of myself as possible"
+                            <span class="quote-author">Letter by Sergeant Frederick Newman, 97th Regiment, who died of fever two weeks after posting it — November 1854</span>
+                        </div>
+
+                        <!-- NEW: Hospital Overcrowding Section -->
+                         <p class="body-text">
+                            However, as time passed, the hospital soon became over-capacity and patients were being treated on mattresses laid on the floors of corridors.
+                        </p>
+
+                        <!-- Placeholder for Hospital Engraving Image -->
+                        <img src="hospital.jpg" alt="New Description">
+                        <div class="quote-box">
+                            "But alas! That was not the end of my poor patients’ sufferings, for, from the scarcity of boats, it is not unlikely that many of them lay for several hours on the wharf before they could be put on board the ships that were to convey them to Scutari. The ships were often sailing ships, devoid of all convenience for the sick; the voyage was tedious and the mortality great, and it is well known that 10 percent of those embarked were thrown overboard before the vessels arrived at Scutari."
+                            <span class="quote-author">By Peter Pincoffs, a Dutch physician serving with the British medical unit in the Ottoman capital</span>
+                        </div>
+
+                        <!-- NEW: Florence Nightingale Arrival -->
+                        <p class="body-text">
+                            In November 1854, Florence Nightingale arrived in Scutari on the Black Sea. She arrived with a group of 38 nurses from England ready to help the British soldiers who were fighting in Crimea.
+                            <br><br>
+                            The hospital in a dreadful state, soldiers lay on the ground in the clothes in which they arrived. Many were malnourished and dehydrated because of water and food shortages. The wounded were mixed in with the infected and open latrines helped to spread infection.
+                            <br><br>
+                            Since the beginning of the Crimean War, newspapers had been printing horror stories about British army hospitals. As a response to such news, the British Parliament formed a commission to work on the improvement of hospitals serving British soldiers in the Ottoman Empire.
+                        </p>
+
+                        <!-- Placeholder for Nightingale Image (image_b173fa.jpg) -->
+                        <img src="Nightingale.jpg" alt="New Description">
+
+                    </div>
+                </div>
+
+                 <!-- Timeline Item 3 -->
+                 <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <h3 class="timeline-date">April 1855 - September 1855</h3>
+                        <h4 class="timeline-subtitle">Improvement</h4>
+                        <p class="body-text">
+                            In 1855 an official Sanitary Commission arrived in Crimea and, with Nightingale's cooperation, they ensured that toilets and washing facilities were upgraded, ventilation was improved and overcrowding reduced. The mortality rate at the military hospitals went from 41% when Nightingale arrived to 2% by the end of the war.
+                        </p>
+                        
+                        <!-- Flourish Embed Container -->
+                        <div class="flourish-embed-container">
+                            <div class="placeholder-embed">
+                                <!-- FLOURISH EMBED 4 -->
+                                 <div class="flourish-embed flourish-parliament" data-src="visualisation/25856049"><script src="https://public.flourish.studio/resources/embed.js"></script><noscript><img src="https://public.flourish.studio/visualisation/25856049/thumbnail" width="100%" alt="parliament visualization" /></noscript></div>
+                        <!-- FLOURISH EMBED CODE END -->
+                            </div>
+                        </div>
+
+                        <!-- NEW: Tenacity at the front text -->
+                        <div class="quote-box">
+                            "The tenacity of those at the front did much to rectify matters. Their perseverance resulted in improved health care and hospital accommodation, the development of harbour facilities and roads, the rationalisation of land transport, the construction of a railway network, and the deployment of a floating bakery and flour mill, steam-powered saw mill, steam distilling vessels, and a factory ship. Together these developments ensured that the necessaries for life were eventually brought to the camps on a regular basis. The health of the troops improved considerably from the spring of 1855 and by 1856 the health of the army was deemed to be very good by the standards of the day."
+                            <span class="quote-author">Report by Mike Hinton, Daily Medical Care in the British Army during the Crimean War, 1854-56</span>
+                        </div>
+
+                        <!-- Placeholder for Soldiers in Winter Kit (image_b170f6.jpg) -->
+                        <img src="Solids.jpg" alt="New Description">
+                        <p class="caption">Soldiers of the 77th Regiment of Foot with new winter kit, 1855</p>
+
+                    </div>
+                </div>
+
+                <!-- NEW Timeline Item 4: Closing to the End -->
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <h3 class="timeline-date">October 1855 - March 1856</h3>
+                        <h4 class="timeline-subtitle">Closing to the end</h4>
+                        
+                        <p class="body-text">
+                            On the fall of 1855, the Allies attacked again. For a second time, the British failed to take the Redan. But the French capture of the Malakoff redoubt, another key part of the defences, led to the Russians abandoning Sevastopol.
+                            <br><br>
+                            The Allies spent another winter in the Crimea. This time it was the French Army’s turn to be decimated by disease, while the British with well-clothed, housed and equipped, were spared the sufferings of the previous winter. The British began to help the French with supplies, as the French had helped them the first year.
+                        </p>
+
+                        <!-- Flourish Embed Container -->
+                        <div class="flourish-embed-container">
+                            <div class="placeholder-embed">
+                                <!-- FLOURISH EMBED 5 -->
+                                 <div class="flourish-embed flourish-table" data-src="visualisation/25857380"><script src="https://public.flourish.studio/resources/embed.js"></script><noscript><img src="https://public.flourish.studio/visualisation/25857380/thumbnail" width="100%" alt="table visualization" /></noscript></div>
+                        <!-- FLOURISH EMBED CODE END -->
+                            </div>
+                        </div>
+                        <p class="chart-caption">Data Source: Chenu (1870) De la mortalité dans l'armée et des moyens d'économiser la vie humaine...</p>
+
+                        <div class="quote-box">
+                            "Chenu (1870) made an even more devastating comparison, based on deaths during the two winters of the war. Remarkably, the French rates surged in the second year, even though hostilities ended in September. For the British Army, of course, the reductions in death rates began as soon as the sanitary reforms had been made, and they continued throughout the post-hostilities period, except for a new cholera epidemic."
+                            <span class="quote-author">Lynn McDonald, Florence Nightingale, Statistics and the Crimean War...</span>
+                        </div>
+
+                        <!-- Placeholder for Color Hospital Image -->
+                         <!-- Using a generic Nightingale ward image as placeholder -->
+                        <img src="Light.jpg" alt="New Description">
+
+                        <p class="body-text">
+                            The Russians were shaken by the loss of Sevastopol. In October 1855, their mainland base of Kinburn also fell to the Allies. When the Austrians threatened to enter the war against them, the Russians agreed to peace terms and the Treaty of Paris was signed in March 1856.
+                        </p>
+
+                    </div>
+                </div>
+
+            </div>
+            <!-- End Timeline -->
+
+        </main>
+    </div>
+
+</body>
+</html>
